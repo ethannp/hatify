@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Hatify</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://rawgit.com/kangax/fabric.js/master/dist/fabric.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700;1,800&family=Roboto&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    .box {
+        background-color: rgb(47, 49, 54);
+        max-width: 900px;
+        padding: 10px 20px;
+        border-radius: 5px;
+        margin: auto;
+        text-align: center;
+    }
+
+    body {
+        background-color: rgb(32, 34, 37);
+        font-family: 'Fira Sans', sans-serif;
+        color: white;
+    }
+
+    h1 {
+        font-size: 50px;
+        font-weight: 800px;
+    }
+
+    .upload-btn-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .btn {
+        border: 0px;
+        color: rgb(17, 17, 17);
+        background-color: rgb(53, 183, 255);
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 18px;
+        font-family: 'Fira Sans';
+        font-weight: bold;
+        cursor:pointer;
+        outline: none;
+
+    }
+
+    .upload-btn-wrapper input[type=file] {
+        font-size: 100px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+
+    .canvas-container {
+        margin: 0 auto;
+    }
+
+
+    /* Dropdown button on hover & focus */
+    .btn:hover,
+    .btn:focus {
+        background-color: #2c8dce;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        border-radius:3px;
+        min-width: 125px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+        color: black;
+        border-radius:3px;
+        padding: 12px 10px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {
+        background-color: #ddd
+    }
+
+    /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+    .show {
+        display: block;
+    }
+</style>
+
+<body>
+    <main>
+        <div class="box" style="margin-top:50px;">
+            <h1>Hatify</h1>
+            <div class="upload-btn-wrapper">
+                <button class="btn">Upload Image</button>
+                <input type="file" id="file" name="image" />
+            </div>
+            <p></p>
+            <div class="dropdown">
+                <button onclick="choose()" class="dropbtn btn">Select Hat</button>
+                <div id="drop" class="dropdown-content" style="margin-top:5px;">
+                    <a onclick="refresh('santa')">Santa Hat</a>
+                    <a onclick="refresh('bday')">Birthday Hat</a>
+                    <a onclick="refresh('crown')">Crown</a>
+                </div>
+            </div>
+            <p></p>
+            <div id="canvascont" style="width:100%;text-align:center;">
+                <canvas id="c" style="border:solid rgb(53, 183, 255) 1px" width="500" height="300"></canvas>
+            </div>
+            <p></p>
+            <button class="btn" onclick="download()">Download image</button>
+            <p></p>
+            <script src="app.js"></script>
+        </div>
+    </main>
+</body>
+
+</html>
