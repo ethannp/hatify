@@ -28,6 +28,8 @@ document.getElementById('file').addEventListener("change", function (e) {
 
         let remove = document.getElementById("file").value.split("\\").pop();
         fname = remove.substr(0, remove.lastIndexOf("."));
+
+        document.getElementById("info").removeAttribute("hidden");
     }
 });
 
@@ -81,4 +83,6 @@ function refresh(nhat) {
         canvas.add(img);
     });
     canvas.clear().renderAll();
+
+    document.getElementById("info").removeAttribute("hidden");
 }
